@@ -1,0 +1,13 @@
+{
+  "name": "input-hook",
+  "version": "1.0.0",
+  "description": "这个包提供输入的监听",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node-gyp configure build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
