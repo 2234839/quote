@@ -4,7 +4,7 @@
   "description": "这个包提供输入的监听",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build && node demo.js",
     "build": "node-gyp configure build"
   },
   "keywords": [],
