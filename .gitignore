@@ -1,5 +1,6 @@
-/packages/input-hook/build/
-
 /.vscode
 
-/node_modules/
+node_modules/
+
+dist
+build
