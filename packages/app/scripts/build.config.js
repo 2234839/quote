@@ -82,7 +82,9 @@ const config = {
     publish: [
       'github'
     ]
-  }
+  },
+  appId: 'cn.shenzilong.quote',
+
 }
 
 module.exports = config

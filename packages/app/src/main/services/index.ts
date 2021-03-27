@@ -2,6 +2,7 @@ import { ipcMain } from "electron";
 import { Logger } from "../logger";
 import { BaseService } from "./BaseService";
 import { FooService } from "./FooService";
+import { RobotService } from "./RobotService";
 import { SearchService } from "./SearchService";
 import { INJECTIONS_SYMBOL } from "./Service";
 
@@ -12,6 +13,7 @@ export interface Services {
   FooService: FooService;
   BaseService: BaseService;
   SearchService: SearchService;
+  RobotService: RobotService;
 }
 
 let _services!: Services;
@@ -26,6 +28,7 @@ export function initialize(logger: Logger) {
     BaseService: new BaseService(logger),
     FooService: new FooService(logger),
     SearchService: new SearchService(logger),
+    RobotService: new RobotService(logger),
   });
 }
 

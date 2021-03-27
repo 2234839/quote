@@ -21,6 +21,7 @@
     "dependencies": {
         "axios": "^0.21.1",
         "electron-updater": "^4.3.5",
+        "robotjs": "^0.6.0",
         "vue": "^3.0.7",
         "vue-router": "^4.0.4",
         "vuex": "^4.0.0"
@@ -68,7 +69,8 @@
     "workspaces": {
         "nohoist": [
             "electron",
-            "axios"
+            "axios",
+            "robotjs"
         ]
     }
 }
