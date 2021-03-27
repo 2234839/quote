@@ -21,12 +21,13 @@ export default defineComponent({
       console.log(searchResults.value.data);
     });
 
-    const { 切换应用, 粘贴 } = useService("RobotService");
+    const { 切换应用, 粘贴, test: Test2 } = useService("RobotService");
 
     async function test() {
-      切换应用();
-      await sleep(50);
-      粘贴();
+      // 切换应用();
+      // await sleep(50);
+      // 粘贴();
+      Test2();
     }
     return {
       searchStr,

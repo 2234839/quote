@@ -1,5 +1,5 @@
 import type Electron from 'electron'
-
+//@ts-ignore
 const { shell, clipboard, ipcRenderer, dialog } = (window as any).electron as typeof Electron
 
 export function useShell() {
