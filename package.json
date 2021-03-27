@@ -3,7 +3,10 @@
     "workspaces": [
         "packages/*"
     ],
+    "nohoist": [
+        "**/electron"
+    ],
     "scripts": {
-        "build input-hook": "yarn workspace input-hook build"
+        "build_input-hook": "yarn workspace input-hook build"
     }
 }
