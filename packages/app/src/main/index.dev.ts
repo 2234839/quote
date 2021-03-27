@@ -5,7 +5,10 @@ import './index'
 
 app.on('browser-window-created', (event, window) => {
   if (!window.webContents.isDevToolsOpened()) {
+    window.setPosition(1150,200)
+
     window.webContents.openDevTools()
+    window.setContentSize(600,800)
   }
 })
 
