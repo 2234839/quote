@@ -1,8 +1,7 @@
 import { defineComponent, ref, watchEffect } from "vue";
-import { useService } from "/@/hooks";
+import { useClipboard, useService } from "/@/hooks";
 import { usePromiseComputed } from "/@/lib/vue.composition.api";
 import CInput from "/@/components/base/input.vue";
-import { sleep } from "/@/../common_ts";
 export default defineComponent({
   components: {
     CInput,
@@ -29,10 +28,17 @@ export default defineComponent({
       // 粘贴();
       Test2();
     }
+    const clipboard = useClipboard();
+    async function paste(s: string) {
+      切换应用();
+      clipboard.writeText(s);
+      粘贴();
+    }
     return {
       searchStr,
       searchResults,
       test,
+      paste,
     };
   },
 });

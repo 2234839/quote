@@ -8,6 +8,7 @@ import anotherPreload from "/@preload/another";
 import indexHtmlUrl from "/@renderer/index.html";
 import sideHtmlUrl from "/@renderer/side.html";
 import logoUrl from "/@static/logo.png";
+import { dialog, globalShortcut } from "electron/main";
 
 async function main() {
   const logger = new Logger();
@@ -15,10 +16,20 @@ async function main() {
   initialize(logger);
   app.whenReady().then(() => {
     const main = createWindow();
-
+    main.hide();
     // const [x, y] = main.getPosition();
     // const side = createSecondWindow();
     // side.setPosition(x + 800 + 5, y);
+
+    globalShortcut.register("CommandOrControl+J", function () {
+      main.show();
+      // dialog.showMessageBox({
+      //   type: 'info',
+      //   message: '成功!',
+      //   detail: '你按下了一个全局注册的快捷键绑定.',
+      //   buttons: ['好的']
+      // })
+    });
   });
 
   // thread_worker example

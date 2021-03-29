@@ -1,6 +1,7 @@
-import { sleep } from "../../common_ts";
+import { sleep } from "../../shared/util_ts";
 import { Service } from "./Service";
 import Electron from "electron";
+import { useClipboard } from "/@shared/hook/electron";
 
 import type robotType from "robotjs";
 import { Logger } from "../logger";
@@ -22,7 +23,7 @@ export class RobotService extends Service {
     robot.keyTap("v", "control");
   }
   async test() {
-    const clipboard = Electron.clipboard;
+    const clipboard = useClipboard();
 
     console.log("test2");
 

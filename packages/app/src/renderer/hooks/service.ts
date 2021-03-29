@@ -1,4 +1,4 @@
-import { useIpc } from './electron'
+import { useIpc } from '../../shared/hook/electron'
 import type { Services } from '/@main/services'
 
 const { invoke } = useIpc()

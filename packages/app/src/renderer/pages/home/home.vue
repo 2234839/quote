@@ -8,12 +8,14 @@
         placeholder="输入需要搜索的内容"
       />
     </div>
-    <div @click="test" class="card clickable">
-      test
-    </div>
+    <div @click="test" class="card clickable">test</div>
     <div class="card">
       <div v-if="searchResults.pending">搜索中</div>
-      <div class="card" v-for="(item, index) in searchResults.data">
+      <div
+        class="card"
+        v-for="(item, index) in searchResults.data"
+        @click="() => paste(item.html)"
+      >
         {{ item.html }}
       </div>
     </div>

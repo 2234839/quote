@@ -1,5 +1,5 @@
 import { Service } from "./Service";
-import { sleep } from "../../common_ts";
+import { sleep } from "../../shared/util_ts";
 interface Item {
   html: string;
 }
