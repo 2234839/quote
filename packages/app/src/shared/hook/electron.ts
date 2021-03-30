@@ -1,8 +1,14 @@
 import type Electron from "electron";
 
-const { shell, clipboard, ipcRenderer, dialog } = ("electron" in globalThis
+const electron = ("electron" in globalThis
   ? (globalThis as any).electron
   : require("electron")) as typeof Electron;
+
+const { shell, clipboard, ipcRenderer, dialog } = electron;
+
+export function useElectron() {
+  return electron;
+}
 
 export function useShell() {
   return shell;

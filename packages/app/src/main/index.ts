@@ -8,7 +8,9 @@ import anotherPreload from "/@preload/another";
 import indexHtmlUrl from "/@renderer/index.html";
 import sideHtmlUrl from "/@renderer/side.html";
 import logoUrl from "/@static/logo.png";
-import { dialog, globalShortcut } from "electron/main";
+import { globalShortcut } from "electron/main";
+import { mainWindowState } from "/@shared/hook/ipc";
+import { watchEffect } from "vue";
 
 async function main() {
   const logger = new Logger();
@@ -61,6 +63,18 @@ function createWindow() {
   win.removeMenu();
   win.setAlwaysOnTop(true, "screen-saver");
   win.moveTop();
+
+  win.on(
+    "show",
+    () => (mainWindowState.value = { isShow: true, t: Date.now() })
+  );
+  win.on(
+    "hide",
+    () => (mainWindowState.value = { isShow: false, t: Date.now() })
+  );
+  watchEffect(() => {
+    console.log("[mainWindowState]", mainWindowState.value);
+  });
 
   return win;
 }

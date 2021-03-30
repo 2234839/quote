@@ -1,7 +1,8 @@
 import { defineComponent, ref, watchEffect } from "vue";
-import { useClipboard, useService } from "/@/hooks";
+import { useClipboard, useIpc, useService } from "/@/hooks";
 import { usePromiseComputed } from "/@/lib/vue.composition.api";
 import CInput from "/@/components/base/input.vue";
+import { mainWindowState } from "/@shared/hook/ipc";
 export default defineComponent({
   components: {
     CInput,
@@ -17,16 +18,24 @@ export default defineComponent({
     });
 
     watchEffect(() => {
-      console.log(searchResults.value.data);
+      console.log("[mainWindowState]", mainWindowState);
+    });
+
+    watchEffect(() => {
+      console.log("searchResults", searchResults.value.data);
+    });
+    watchEffect(() => {
+      console.log("mainWindowState", mainWindowState.value.isShow);
     });
 
     const { 切换应用, 粘贴, test: Test2 } = useService("RobotService");
 
     async function test() {
-      // 切换应用();
-      // await sleep(50);
-      // 粘贴();
-      Test2();
+      // const ipc = useIpc();
+      // console.log("[ipc.on]", ipc.on);
+      // ipc.send("a", Date.now());
+      // Test2();
+      mainWindowState.value = { ...mainWindowState.value, isShow: false };
     }
     const clipboard = useClipboard();
     async function paste(s: string) {
